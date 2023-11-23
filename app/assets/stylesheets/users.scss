@@ -1,0 +1,56 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.aki{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+}
+
+.mypage{
+    background: -moz-linear-gradient(top, #FFDEAD, #FFF);
+    background: -webkit-linear-gradient(top, #FFDEAD, #FFF);
+    background: linear-gradient(to bottom, #FFDEAD, #FFF);
+}
+
+.tanaka h1{
+    text-align: center;
+    padding: 20px;
+}
+
+.photo2{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+
+.usermypage{
+    display: flex;
+    padding: 80px;
+    text-align: center;
+    width: 100%;
+}
+
+.post{
+    border: 2px solid;
+    border-radius: 30px;
+    margin: 2em 5.5em ;
+    background-color: #FFDEAD;
+    padding-top: 2em;
+    position:relative;
+    height: 290px;
+    width: 200px;
+    text-align: center;
+}
+
+.mypage h2{
+    text-align: center;
+    padding: 20px;
+}
+
+.user-in{
+    font-size: 20px;
+    width: 70%;
+}

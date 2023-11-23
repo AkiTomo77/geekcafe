@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geekcafe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://kit.fontawesome.com/ea4fe8fdff.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap" rel="stylesheet">
+  </head>
+
+<body>
+ <header>
+  <h1>GeekCafe</h1>
+
+  <div class="hamburger-menu">
+    <input type="checkbox" id="menu-btn-check">
+    <label for="menu-btn-check" class="menu-btn"><span></span></label>
+
+    <div class="header-list">
+      <ul>
+        <li>
+         <%= link_to "本サイト", posts_path %>
+        </li>
+        <li>
+          <%= link_to "投稿ページへ", new_post_path %>
+        </li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to "マイページへ", user_path(current_user.id) %>
+          <% end %>
+        </li>
+      
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        </li>
+        <li>
+          <% else %>
+            <%= link_to "ログイン", new_user_session_path %>
+        </li>
+          <% end %>
+        <li>
+          <%= link_to "お問い合わせ", inquiry_path %>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+ </header>
+ <main>
+  <%= yield %>
+ </main>
+
+ <footer>
+  <a href="https://www.instagram.com/geeksalon/" target="_blank" rel="noopener noreferrer" class="insta_btn">
+    <span class="insta">
+      <i class="fab fa-instagram"></i>
+    </span> 
+  </a>
+  <p>Copyright © GeekSalon2022</p>
+ </footer>
+
+</body>
+</html>

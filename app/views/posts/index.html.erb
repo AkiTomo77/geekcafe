@@ -1,0 +1,94 @@
+<link rel="stylesheet" href"app/assets/stylesheets/posts.scss">
+
+<div class="bg_test">
+ <div class="message">
+  <h1>Let’s go to <br>
+  the cafe</h1>
+ </div>
+</div>
+
+<div class="cafe2">
+  <div class="diagnosis">
+    <%= image_tag 'geekcafe3.png', class: "photo" %><br>
+    <%= link_to "行きたいカフェを診断する", perfumes_path, class: 'btn button' %>
+  </div>
+
+  <div class="cafe">
+    <span style = "font-size: 25px; padding-bottom: 50px;">誰でも使いやすいカフェ探しを手伝いたい</span><br>
+    忙しい日々にカフェのひとときを提供したい。そんな想いを持ってこのサイトを作ることにしました。ぜひ自分のアカウントを作って、カフェ生活を充実させてください。
+  
+    <div class="search1">
+      <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+        <%= text_field_tag :search %>
+        <button type="submit">
+          <i class="fas fa-search"></i> 
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="posts">
+  <h3>新着カフェ</h3>
+
+  <div class="tagbox">
+    <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+      <%= select_tag :tag_search, options_from_collection_for_select(@tag, "id","name") %>
+      <button type="submit">
+        <i class="fas fa-search"></i> 
+      </button>
+    <% end %>
+  </div>
+
+<div class="pagenation">  
+  <%= page_entries_info @posts %>
+  <%= paginate @posts %>
+</div>
+
+  <div class="posts-container">
+    <% @posts.each do |t| %>
+      <div class="post">
+        <%= image_tag t.image_url, class: 'postimg' if t.image? %><br>
+
+        <%= t.shop_name %><br>
+        <%= link_to t.user.name, user_path(t.user.id) %><br>
+
+        <% t.tags.each do |tag| %>
+          <%= tag.name %>
+        <% end %>
+
+        <% @lectures.each do |t|%><br>
+            <span class="star-rating">
+            <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
+            <span class="star-rating-back">★★★★★</span>
+            </span> 
+        <% end %>
+      
+        <% if user_signed_in? %><br>
+        <% if current_user.already_liked?(t) %>
+            <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+              <i class="fas fa-heart"></i><%= t.likes.count %>
+            <% end %>
+        <% else %>
+            <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+              <i class="far fa-heart"></i><%= t.likes.count %>
+            <% end %>
+        <% end %>
+        <% else %>
+        <i class="far fa-heart"></i><%= t.likes.count %>
+        <% end %><br>
+
+        <%= link_to "詳細へ", post_path(t.id) %>
+
+        <% if user_signed_in? && current_user.id == t.user_id %>
+        <%= link_to "編集する", edit_post_path(t.id) %>
+        <%= link_to "削除する", post_path(t.id), method: :delete %>
+      <% end %> 
+      </div>
+    <% end %>
+  </div>
+
+
+</div>
+</div>
+

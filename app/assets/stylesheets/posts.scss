@@ -1,0 +1,114 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.bg_test {   
+  padding:  150px; 
+  background-image: url(geekcafe1.png);  
+  background-size: cover;
+  opacity: 50%;    
+}
+
+.bg_test h1{
+  font-size: 50px;
+}
+
+.photo{
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.cafe{
+  text-align: left;
+  width: 65%;
+  margin: 10px;
+  float: right;
+  font-size: 15px;
+}
+
+.cafe2{
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.search1{
+  text-align: left;
+  margin-top: 70px;
+  size: 250200;
+}
+
+.diagnosis{
+  width: 35%;
+  margin-left: 70px;
+  margin-right: 35px;
+}
+
+.posts{
+  background-color: #F2EEEB;
+}
+
+h3{
+  text-align: center;
+  padding: 20px;
+}
+
+.tagbox{
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;  
+}
+
+.post{
+  border: 2px solid;
+  border-radius: 30px;
+  margin: 2em 5.5em ;
+  background: -moz-linear-gradient(top, #FFDEAD, #FFF);
+  background: -webkit-linear-gradient(top, #FFDEAD, #FFF);
+  background: linear-gradient(to bottom, #FFDEAD, #FFF);
+  padding-top: 2em;
+  position:relative;
+  height: 290px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 0 8px gray;
+}
+
+.postimg{
+  width: 100%;
+  height: 60%;
+}
+
+.posts-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+}
+
+.button {
+  display       : inline-block;
+  border-radius : 50%;          /* 角丸       */
+  font-size     : 7pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 20px 30px;   /* 余白       */
+  background    : #000000;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 7px 7px 16px #666666;  /* 影の設定 */
+  border        : 2px solid #000000;    /* 枠の指定 */
+}
+
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000000;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+.pagenation{
+  text-align: center;
+}

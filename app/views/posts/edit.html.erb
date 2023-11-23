@@ -1,0 +1,11 @@
+<%= form_for @post do |f| %>
+    <%= f.label :place %>
+    <%= f.text_field :place, :size => 140 ,placeholder:"（例）代官山"%>
+
+    <%= f.label :shop_name %>
+    <%= f.text_field :shop_name, :size => 140 ,placeholder:"（例）猫カフェ"%>
+
+    <%= f.label :address %>
+    <%= f.text_field :address, :size => 140 ,placeholder:"（例）渋谷区4-1-12"%>
+    <%= f.submit "編集する" %>
+<% end %>
