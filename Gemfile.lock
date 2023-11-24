@@ -214,8 +214,6 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
-    sinatra (1.0)
-      rack (>= 1.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -281,7 +279,6 @@ DEPENDENCIES
   rails (~> 6.1.7, >= 6.1.7.6)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
-  sinatra (= 1.0)
   sqlite3
   turbolinks (~> 5)
   tzinfo-data
