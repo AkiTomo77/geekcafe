@@ -60,6 +60,8 @@ gem 'kaminari', '~> 0.17.0'
 
 group :production do
   gem 'pg'
+  source "https://rubygems.org"
+  gem 'sinatra', '1.0'
 end
 
 
