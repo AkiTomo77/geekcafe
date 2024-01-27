@@ -43,8 +43,6 @@
 
         <%= t.shop_name %><br>
         <%= link_to t.user.name, user_path(t.user.id) %><br>
-
-
       
         <% if user_signed_in? %><br>
         <% if current_user.already_liked?(t) %>

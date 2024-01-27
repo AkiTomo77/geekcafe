@@ -42,13 +42,13 @@ end
 
   def create
     post = Post.new(post_params)
-
+    
     post.user_id = current_user.id
     
     if post.save!
-      redirect_to :action => "index"
+      redirect_to :action => "index", notice: "失敗だ"
     else
-      redirect_to :action => "new"
+      redirect_to :action => "new" , notice: "失敗だ"
     end
   end
 
@@ -79,6 +79,6 @@ end
 
   private
   def post_params
-    params.require(:post).permit(:place, :shop_name, :address, :image, tag_ids: [])
+    params.require(:post).permit(:place, :shop_name, :address, :image, :youtube_url, tag_ids: [])
   end
 end

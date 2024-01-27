@@ -12,3 +12,9 @@ Tag.create([
   { name: '東京カフェ' },
   { name: '喫茶店' }
 ])
+
+User.create!(name:  "akitomo",
+             email: "ak001477tm@gmail.com",
+             password:  "123456",
+             password_confirmation: "123456",
+             admin: true)

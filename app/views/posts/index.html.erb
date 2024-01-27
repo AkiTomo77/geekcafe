@@ -9,7 +9,7 @@
 
 <div class="cafe2">
   <div class="diagnosis">
-    <%= image_tag 'geekcafe3.png', class: "photo" %><br>
+    <%= image_tag "geekcafe3.png", class: "photo" %><br>
     <%= link_to "行きたいカフェを診断する", perfumes_path, class: 'btn button' %>
   </div>
 
@@ -21,15 +21,20 @@
       <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
         <%= text_field_tag :search %>
         <button type="submit">
-          <i class="fas fa-search"></i> 
+          <i class="fas fa-search"></i>
         </button>
       <% end %>
     </div>
   </div>
 </div>
 
+
+
 <div class="posts">
   <h3>新着カフェ</h3>
+
+  <%= link_to "GoogleMapであそぼ！", maps_path %>
+  <p id="notice"><%= notice %></p>
 
   <div class="tagbox">
     <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
