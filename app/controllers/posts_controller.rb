@@ -30,10 +30,7 @@ def index
     @posts.uniq!
     @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(6)
   end
-  
-  
   @posts = @posts.page(params[:page]).per(6)
-  
 end
 
   def new
@@ -55,7 +52,7 @@ end
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments
-    @comment = Comment.new
+    @comment = @post.comments.build
   end
 
   def edit

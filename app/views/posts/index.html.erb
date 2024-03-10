@@ -50,50 +50,49 @@
   <%= paginate @posts %>
 </div>
 
-  <div class="posts-container">
-    <% @posts.each do |t| %>
-      <div class="post">
-        <%= image_tag t.image_url, class: 'postimg' if t.image? %><br>
+<div class="posts-container">
+<% @posts.each do |t| %>
+  <div class="post">
+    <%= image_tag t.image_url, class: 'postimg' if t.image? %><br>
 
-        <%= t.shop_name %><br>
-        <%= link_to t.user.name, user_path(t.user.id) %><br>
+    <%= t.shop_name %><br>
+    <%= link_to t.user.name, user_path(t.user.id) %><br>
 
-        <% t.tags.each do |tag| %>
-          <%= tag.name %>
-        <% end %>
-
-        <% @lectures.each do |t|%><br>
-            <span class="star-rating">
-            <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
-            <span class="star-rating-back">★★★★★</span>
-            </span> 
-        <% end %>
-      
-        <% if user_signed_in? %><br>
-        <% if current_user.already_liked?(t) %>
-            <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
-              <i class="fas fa-heart"></i><%= t.likes.count %>
-            <% end %>
-        <% else %>
-            <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
-              <i class="far fa-heart"></i><%= t.likes.count %>
-            <% end %>
-        <% end %>
-        <% else %>
-        <i class="far fa-heart"></i><%= t.likes.count %>
-        <% end %><br>
-
-        <%= link_to "詳細へ", post_path(t.id) %>
-
-        <% if user_signed_in? && current_user.id == t.user_id %>
-        <%= link_to "編集する", edit_post_path(t.id) %>
-        <%= link_to "削除する", post_path(t.id), method: :delete %>
-      <% end %> 
-      </div>
+    <% t.tags.each do |tag| %>
+      <%= tag.name %>
     <% end %>
+
+    <% @lectures.each do |t|%><br>
+        <span class="star-rating">
+        <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
+        <span class="star-rating-back">★★★★★</span>
+        </span> 
+    <% end %>
+  
+    <% if user_signed_in? %><br>
+    <% if current_user.already_liked?(t) %>
+        <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+          <i class="fas fa-heart"></i><%= t.likes.count %>
+        <% end %>
+    <% else %>
+        <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+          <i class="far fa-heart"></i><%= t.likes.count %>
+        <% end %>
+    <% end %>
+    <% else %>
+    <i class="far fa-heart"></i><%= t.likes.count %>
+    <% end %><br>
+
+    <%= link_to "詳細へ", post_path(t.id) %>
+
+    <% if user_signed_in? && current_user.id == t.user_id %>
+    <%= link_to "編集する", edit_post_path(t.id) %>
+    <%= link_to "削除する", post_path(t.id), method: :delete %>
+  <% end %> 
   </div>
+<% end %>
+</div>
 
 
 </div>
 </div>
-
