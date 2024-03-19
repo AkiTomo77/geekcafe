@@ -7,6 +7,8 @@
   <% end %>
 </div>
 
+<%= @user.profile %>
+
 <div class="usermypage">
     <div class="photo2">
       <%= image_tag @user.image_url, size: "250x200" if @user.image? %>
