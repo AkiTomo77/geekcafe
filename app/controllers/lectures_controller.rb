@@ -1,6 +1,6 @@
 class LecturesController < ApplicationController
     def index
-     @lectures = Lecture.all
+     @lectures = Lectures.all.sort_by { |lecture| lecture.overall }.reverse
     end
   
     def new

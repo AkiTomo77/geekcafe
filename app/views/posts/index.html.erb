@@ -28,7 +28,12 @@
   </div>
 </div>
 
-
+<div class="ta">
+    <h1>ランキング</h1>
+    <% @lectures.each do |lecture| %>
+      <li><%= @posts.shop_name %> - Total Overall: <%= @lectures.overall %></li>
+    <% end %>
+</div>
 
 <div class="posts">
   <h3>新着カフェ</h3>
